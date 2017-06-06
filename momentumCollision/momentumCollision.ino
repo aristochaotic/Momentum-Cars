@@ -1,39 +1,30 @@
 #include <Servo.h>
 
-int pinLA = 9;
-int pinLB = 10;
-int pinRA = 11;
-int pinRB = 12;
+int pinL = 8;
+int pinR = 9;
 
-int button = 2;
+int button = 7;
 
 bool pushed = false;
 
-Servo servoLA;
-Servo servoLB;
-Servo servoRA;
-Servo servoRB;
+Servo servoL;
+Servo servoR;
 
 void setup() {
-  pinMode(pinLA, OUTPUT);
-  pinMode(pinLB, OUTPUT);
-  pinMode(pinRA, OUTPUT);
-  pinMode(pinRB, OUTPUT);
+  pinMode(pinL, OUTPUT);
+  pinMode(pinR, OUTPUT);
 
-  pinMode(button, INPUT);
+  pinMode(button, INPUT_PULLUP);
   
-  servoLA.attach(pinLA);
-  servoLB.attach(pinLB);  
-  servoRA.attach(pinRA);  
-  servoRB.attach(pinRB);  
+  servoL.attach(pinL);
+  servoR.attach(pinR);  
 }
 
 void loop() {
  if(digitalRead(button) == HIGH) { pushed = true; }
  while(!pushed){
-  servoLA.write(180);
-  servoLB.write(180);
-  servoRA.write(180);
-  servoRB.write(180);
+  servoL.write(180);
+  servoR.write(180);
+
   }
 }
